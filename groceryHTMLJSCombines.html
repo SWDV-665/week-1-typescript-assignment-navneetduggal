@@ -1,0 +1,53 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<table class="table table-striped">
+    <tr class="bg-info">
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+    </tr>
+
+    <tbody id="groceryTable">
+        
+    </tbody>
+</table>
+
+<script>
+	class Grocery{
+    itemName;
+    itemQuantity;
+    itemCost;
+
+    constructor(name, quantity, cost) {
+        this.itemName = name;
+        this.itemQuantity = quantity;
+        this.itemCost = cost;
+      }
+}
+
+function buildTable(){
+    
+    var arrayOfGroceries = [new Grocery('Eggs', 100, 2),
+                            new Grocery('Bread', 200, 3),
+                            new Grocery('Milk', 50, 5)];
+
+    var table = document.getElementById('groceryTable');
+
+    for (var i = 0; i < arrayOfGroceries.length; i++){
+        var row = `<tr>
+                        <td>${arrayOfGroceries[i].itemName}</td>
+                        <td>${arrayOfGroceries[i].itemQuantity}</td>
+                        <td>${arrayOfGroceries[i].itemCost}</td>
+                  </tr>`;
+        table.innerHTML += row;
+
+
+    }  
+    
+    
+}
+
+buildTable();
+
+</script>
